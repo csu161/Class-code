@@ -20,7 +20,11 @@ public class CopyJob {
     // if the first step does not throw an exception and the second step returns true
     // then we will be able to copy into that file!	
 	public CopyJob (File f, File[] fa) {
+		this.source = f;
+		this.destinations = fa;
+		
 		if(f.canRead()) {
+			
 			for(int i=0; i < fa.length; i++) {
 				try {
 					fa[i].createNewFile();
@@ -48,7 +52,15 @@ public class CopyJob {
     // create a static method, called fromStrings, that takes a source String
     // filename and an array of destination String filenames,
     //calls the first constructor, and returns the resulting object
-	
+	public static CopyJob fromStrings(String src, String[] dest) {
+		File f = new File(src);
+		File [] fa = new File[dest.length];
+		for (int i = 0; i < dest.length; i++) {
+			File fd = new File(dest[i]);
+			fa[i] = fd;
+		}
+		return new CopyJob(f, fa);
+	}
 
     // create a non-static method, called "copyAll", that repeatedly calls
     // copyFromTo for each of the destination files
