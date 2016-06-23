@@ -20,27 +20,26 @@ public class CopyJob {
     // if the first step does not throw an exception and the second step returns true
     // then we will be able to copy into that file!	
 	public CopyJob (File f, File[] fa) {
-		this.source = f;
-		this.destinations = fa;
+//		this.source = f;
+//		this.destinations = fa;
 		
-		if(f.canRead()) {
-			
-			for(int i=0; i < fa.length; i++) {
+		try {
+			f.canRead();
+			for (int i=0; i < fa.length; i++) {
 				try {
 					fa[i].createNewFile();
-					if (fa[i].canWrite()) {
-						this.done = true;
-					}
-					else {
-						this.done = false;
-					}
-					
+					fa[i].canWrite(); 
 				}
 				catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		}
+		catch (SecurityException e) {
+			e.printStackTrace();
+		}
+		this.source = f;
+		this.destinations = fa;
 	}
 
     // create a constructor that takes a source File and a destination File
@@ -65,6 +64,13 @@ public class CopyJob {
     // create a non-static method, called "copyAll", that repeatedly calls
     // copyFromTo for each of the destination files
     // then sets the "done" boolean to true
+	
+	public void copyAll (File f, File[] fa) {
+		for (int i = 0; i < fa.length; i++){
+			copyFromTo(f, fa[i]);
+		}
+		
+	}
 
     // create a non-static method, called "isDone" to tell if the job is done
 
