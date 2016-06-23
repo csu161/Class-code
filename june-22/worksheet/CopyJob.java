@@ -66,14 +66,21 @@ public class CopyJob {
     // then sets the "done" boolean to true
 	
 	public void copyAll (File f, File[] fa) {
-		for (int i = 0; i < fa.length; i++){
-			copyFromTo(f, fa[i]);
+		try {
+			for (int i = 0; i < fa.length; i++){
+				copyFromTo(f, fa[i]);
+			}	
 		}
-		
+		catch (Exception e) {
+			System.err.println("Failure to copy all files");
+		}
+		this.isDone();
 	}
 
     // create a non-static method, called "isDone" to tell if the job is done
-
+	public void isDone () {
+		this.done = true;
+	}
 
     private static void copyFromTo(File from, File to) {
         try {
