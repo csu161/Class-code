@@ -6,14 +6,22 @@ import java.nio.file.Path;
 
 public class CopyJob {
     // declare a boolean member variable called "done" initially set to false
+	private boolean done = false;
+
     // declare a final member variable of type File called "source"
+	private final File source;
+
     // declare a final member variable of type File[] called "destinations"
+	private final File[] destinations;
 
     // create a constructor that takes a source File and an array of destination Files
     // verifies that source File canRead (it's a method you can call on Files)
     // trys calling createNewFile on all destinations, then call canWrite on each
     // if the first step does not throw an exception and the second step returns true
-    // then we will be able to copy into that file!
+    // then we will be able to copy into that file!	
+	public CopyJob (File f, File[] fa) {
+		
+	}
 
     // create a constructor that takes a source File and a destination File
     // calls previous constructor
