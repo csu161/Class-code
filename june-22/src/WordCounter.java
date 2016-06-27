@@ -3,10 +3,15 @@ import java.util.Map;
 
 public class WordCounter {
     private static class Counter {
+<<<<<<< HEAD:june-22/worksheet/WordCounter.java
+=======
+        private long cnt = 0;
+>>>>>>> e28e61a555ded3a6bdab17b5e4fd8c2ad370e606:june-22/src/WordCounter.java
         // declare a private long member variable
     	private long member;
     	
         // write a no argument constructor, starts at 0
+<<<<<<< HEAD:june-22/worksheet/WordCounter.java
     	public Counter() {
     		this.member = 0;
     	}
@@ -35,6 +40,31 @@ public class WordCounter {
     		}
     		return false;
     	}
+=======
+        public Counter() {
+        }
+
+        // write a method "current" to get the current value
+        public long current() {
+
+        }
+
+        // write a method, "inc" to increment the value
+        public void inc() {
+
+        }
+
+        // write an equals and toString with @Override
+        @Override
+        public String toString() {
+
+        }
+
+        @Override
+        public boolean equals(Object o) {
+
+        }
+>>>>>>> e28e61a555ded3a6bdab17b5e4fd8c2ad370e606:june-22/src/WordCounter.java
     }
 
     private final Map<String, Counter> counts;
