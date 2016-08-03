@@ -234,7 +234,7 @@ class LongSeq {
         return "";
     }
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         LongSeq a = new LongSeq(102L).add(14L).add(13L).add(20L);
         // make sure you test your code.
     }
